@@ -5,7 +5,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <>
-        <Container maxWidth="xl">
+        <Container maxWidth="false">
             <Box component="footer" sx={{ p: 2, borderTop: '1px solid grey' }}>
                 <Typography variant='h6'>Copyright</Typography>
             </Box>
