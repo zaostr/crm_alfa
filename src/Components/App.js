@@ -9,6 +9,7 @@ import { NotFound } from '../Pages/NotFound/NotFound';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import { HomePage } from "../Pages/HomePage/HomePage";
 import { RequireAuth } from "../hooks/RequireAuth";
+import { AuthProvider } from "../hooks/authProvider"
 
 function App() {
   return (
