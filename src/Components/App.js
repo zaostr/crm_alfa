@@ -9,27 +9,24 @@ import { NotFound } from '../Pages/NotFound/NotFound';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import { HomePage } from "../Pages/HomePage/HomePage";
 import { RequireAuth } from "../hooks/RequireAuth";
-import { AuthProvider } from "../hooks/authProvider"
+import { AuthProvider } from "../hooks/AuthProvider"
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={ <Layout /> } >
-        <Route index element={<HomePage />} />
-        <Route path="/dashboard" element={ 
-          <RequireAuth>
-            <Leads />
-          </RequireAuth> 
-        } />
-        <Route path="/leads" element={ 
-          <RequireAuth>
-            <Leads />
-          </RequireAuth> 
-        } />
-        <Route path="/sign-in" element={ <LoginPage /> } />
-        <Route path="*" element={ <NotFound /> } />
-      </Route>
-    </Routes>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={ <Layout /> } >
+          <Route index element={<HomePage />} />
+          <Route path="/leads" element={ 
+            <RequireAuth>
+              <Leads />
+            </RequireAuth> 
+          } />
+          <Route path="/sign-in" element={ <LoginPage /> } />
+          <Route path="*" element={ <NotFound /> } />
+        </Route>
+      </Routes>
+  </AuthProvider>
   );
 }
 
