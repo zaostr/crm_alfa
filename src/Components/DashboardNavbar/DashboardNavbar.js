@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { useState } from 'react';
 import {
     AppBar,
     IconButton,
@@ -22,8 +22,10 @@ import {
 
 const pages = [{0:'Home', 1:'/'}, {0:'Leads',1:'/leads'}, {0:'404',1:'/404'}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+//import Header from '../Header/Header'
 
-export default function Header() {
+export const DashboardNavbar = (props) => {
+    const { onSidebarOpen, ...other } = props;
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
     
@@ -41,9 +43,9 @@ export default function Header() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
-    return (
-        <AppBar sx={{left: {lg: '280px'}, width: {lg: 'calc(100% - 280px)'}}}>
+  return (
+    //<Header />
+    <AppBar sx={{left: {lg: '280px'}, width: {lg: 'calc(100% - 280px)'}}}>
             <Container maxWidth="false">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', lg: 'flex' }, mr: 1 }} />
@@ -71,10 +73,10 @@ export default function Header() {
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
+                            onClick={onSidebarOpen}
                             color="inherit"
                         >
-                        <MenuIcon />
+                            <MenuIcon />
                         </IconButton>
                         <Menu
                         id="menu-appbar"
@@ -167,5 +169,5 @@ export default function Header() {
                 </Toolbar>
             </Container>
         </AppBar>
-    )
+  )
 }

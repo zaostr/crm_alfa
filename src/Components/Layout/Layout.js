@@ -1,23 +1,26 @@
-import { useState } from 'react'
-import Header from '../Header/Header'
+import {useState} from 'react'
 import Footer from '../Footer/Footer'
-import { LoginPage } from '../../Pages/LoginPage/LoginPage'
-import { Container } from '@mui/system'
-import { Outlet, useLocation, Navigate } from "react-router-dom"
+import { DashboardSidebar } from '../DashboardSidebar/DashboardSidebar'
+import { DashboardNavbar } from "../DashboardNavbar/DashboardNavbar";
+import { Box } from '@mui/system'
+import { Outlet } from "react-router-dom"
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from '../../themes/theme1';
 
 export const Layout = () => {
-  const [isLoggedIn, setIsLoginIn] = useState(
-    localStorage.getItem('loggedIn') === 'true'
-  );
-  let location = useLocation();
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   
   return (
-    <>
-      <Header />
-      <Container sx={{mt: '8rem', mb: '2rem'}} maxWidth="false">
-          <Outlet />
-      </Container>
-      <Footer />
-    </>
+    <ThemeProvider theme={theme}>
+      <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} />
+      <DashboardSidebar
+        onClose={() => setSidebarOpen(false)}
+        open={isSidebarOpen}
+      />
+      <Box sx={{pt: '74px', pl: {lg: '280px'}}} maxWidth="false">
+        <Outlet />
+        <Footer />
+      </Box>
+    </ThemeProvider>
   )
 }
