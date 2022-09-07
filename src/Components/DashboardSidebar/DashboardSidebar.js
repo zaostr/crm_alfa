@@ -26,8 +26,13 @@ import {
 } from '@mui/icons-material';
 
 const items = [
+  {
+    href: '/',
+    icon: (<DashboardIcon fontSize="small" />),
+    title: 'Home'
+  },
     {
-      href: '/',
+      href: '/dashboard',
       icon: (<DashboardIcon fontSize="small" />),
       title: 'Dashboard'
     },

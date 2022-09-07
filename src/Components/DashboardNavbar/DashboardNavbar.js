@@ -44,7 +44,6 @@ export const DashboardNavbar = (props) => {
         setAnchorElUser(null);
     };
   return (
-    //<Header />
     <AppBar sx={{left: {lg: '280px'}, width: {lg: 'calc(100% - 280px)'}}}>
             <Container maxWidth="false">
                 <Toolbar disableGutters>
